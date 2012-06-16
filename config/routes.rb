@@ -1,7 +1,12 @@
 Nzitat::Application.routes.draw do
+
+  resources :users
+
   resources :attendees
 
   resources :events
+
+  root :to => 'events#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
