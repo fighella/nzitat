@@ -15,4 +15,10 @@ module ApplicationHelper
   collection_select(:event, :time, times, :to_s, :to_s, :prompt => true)
 end
 
+  def homepage?
+
+    controller_name == 'events' and %w(new create).include?(action_name)
+
+  end
+
 end

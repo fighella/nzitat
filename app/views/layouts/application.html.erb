@@ -8,7 +8,7 @@
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     <![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
@@ -23,22 +23,29 @@
     <div class="container">
       <div class="content">
         <div class="row">
-           <div class="span12">
-              <%= yield %>
-            </div>
+          <div class="span12">
+            <%= yield %>
+          </div>
         </div><!--/row-->
       </div><!--/content-->
 
       <footer style="text-align: center"> 
-      <p style="color: #999">&copy; figjam productions <%= link_to 'See all events', events_path %></p>
-      </footer>
+      <p style="color: #999">&copy; figjam productions <%= link_to 'See all events', events_path %>
 
-    </div> <!-- /container -->
+      <% unless homepage? %>
+        <%= link_to('Add New', new_event_path, :class => 'btn btn-info')  %>
+      <% end  %>
 
-    <!-- Javascripts
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "application" %>
 
-  </body>
+    </p>
+    </footer>
+
+  </div> <!-- /container -->
+
+  <!-- Javascripts
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <%= javascript_include_tag "application" %>
+
+</body>
 </html>

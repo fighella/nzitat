@@ -5,25 +5,31 @@
       <%= timeago(@event.event_start) %>
     </h1>
 
-    until <%= @event.title %>
+    <h3><%= @event.has_happened? ? ' since ' : ' until ' %> <%= @event.title %></h3>
 
   </div>
 </div>
 
 <div class="row">
   <div class="offset3 span4">
-    <h3>Who's Coming?</h3>
+
+    <h3><%= @event.has_happened? ? 'Who Came Along' : 'Who\'s Coming?' %></h3>
+    <% if @event.subscriptions.empty? %>
+      <p>No one.</p>
+    <% else %>
       <% @event.subscriptions.map(&:user).uniq.each do |user| %>
         <%= link_to user.email, user %><br/>
       <% end %>
+
+    <% end %>
   </div>
   <div class="span4">
-    <h3>Subscribe to this event</h3>
-    <%= simple_form_for [@event, @subscription] do |f| %>
+    <h3>Follow this event</h3>
+    <%= simple_form_for([@event, @subscription]) do |f| %>
 
       <%= f.input :email, :label => false %>
 
-      <%= f.button :submit, :class => 'btn btn-info' %>
+      <%= f.button :submit, "Alert me", :class => 'btn btn-info' %>
     </div>
   <% end %>
 </div>

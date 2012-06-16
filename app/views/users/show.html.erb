@@ -3,14 +3,11 @@
   <h1> <%= @user.email  %></h1>
 
   <% if @user.subscriptions.count >= 1 %>
-    <span style="color: #999">is going to:</span>
-    <ul>
+    <div class=" offset4 span4">is going to:<br/>
       <% @user.subscriptions.each do |e| %>
-        <li>
-
-          <h3><%= e.event.title %></h3>
-          <%= timeago(e.event.event_start) %>
-        </li>
+        <%= e.event.title %> <%= timeago(e.event.event_start) %><br/>
       <% end %>
+
+    </div>
     <% end %>
   </div>

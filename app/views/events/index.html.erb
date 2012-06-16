@@ -3,14 +3,26 @@
   <div class="page-header">
     <h1>All Events</h1>
   </div>
-
-
-  <% @events.each do |event| %>
+  <div class="span3 offset3">
+  <h3>Past Events</h3>
+    <% @past_events.each do |event| %>
     <div class="event">
       <h3><%= link_to event.title, event %></h3>
-      <p><%= timeago(event.event_start) %></p>
+      <p><%= timeago(event.event_start) %><br/>
+        <%= event.subscriptions.count %> attendees</p>
+      
+    </div>
+  <% end %>
+</div>
+<div class="span3">
+  <h3>Coming Events</h3>
+   <% @coming_events.each do |event| %>
+    <div class="event">
+      <h3><%= link_to event.title, event %></h3>
+      <p><%= timeago(event.event_start) %><br/>
+        <%= event.subscriptions.count %> attending</p>
     </div>
   <% end %>
 
-
+</div>
 </div>

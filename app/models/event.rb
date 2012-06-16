@@ -18,6 +18,13 @@ class Event < ActiveRecord::Base
     self.time = event_start.strftime('%I:%M%p')
   end
 
+  scope :coming_events, where('event_start > ?', Time.now)
+  scope :past_events, where('event_start < ?', Time.now)
+
+  def has_happened?
+    event_start < Time.now
+  end
+
   private
   def set_datetime
     if date.present? && time.present?

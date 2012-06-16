@@ -5,7 +5,13 @@ class SubscriptionsController < InheritedResources::Base
     @subscription = @event.subscriptions.new(params[:subscription])
     @user = User.find_or_create_by_email(@subscription.email)
     @subscription.user = @user
-    create! { event_path(@event) }
+    if @subscription.save
+      create! { event_path(@event) }
+    else
+      
+      redirect_to @event
+    end
+
   end
 
 end
