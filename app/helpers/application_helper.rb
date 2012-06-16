@@ -8,11 +8,10 @@ module ApplicationHelper
   times = %w(AM PM).collect do |ampm|
     (0..11).to_a.collect do |hour|
       (0..45).step(15).to_a.collect do |minutes|
-        '%i:%02d%s' % [hour == 0 ? 12 : hour, minutes, ampm]
+        '%02d:%02d%s' % [hour == 0 ? 12 : hour, minutes, ampm]
       end
     end
   end.flatten
-
   collection_select(:event, :time, times, :to_s, :to_s, :prompt => true)
 end
 
