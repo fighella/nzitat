@@ -16,7 +16,7 @@ development:
   username: 
   password: 
 
-test: &TEST
+test: &test
   adapter: postgresql
   encoding: unicode
   database: nzitat_test
@@ -24,3 +24,5 @@ test: &TEST
   host: localhost
   username: 
   password:
+cucumber:
+  <<: *test

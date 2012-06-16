@@ -1,17 +1,39 @@
-<%= @event.title %>
+<div class="row">
+  <div style="text-align:center; height: 200px;" class="span12">
+    <br/>
+    
+    <h1 style="font-size: 82px; line-height: 82px">
+      
+      <% # timeago(@event.event_start) %>
+      <%= timeago(30.seconds.from_now) %>
+    
+    </h1>
+    
+    until <%= @event.title %>
 
-<%= @event.event_start %>
 
-<% @event.subscriptions.map(&:user).uniq.each do |user| %>
-  <%= user.email %>
-<% end %>
+  </div>
+</div>
 
-<%= semantic_form_for [@event, @subscription] do |f| %>
 
-  <%= f.input :email %>
+<br/>
 
-  <%= f.actions do %>
-    <%= f.action :submit, :as => :button %>
+<div class="row">
+  <div class="span6">
+    <h3>Fuckers coming to this shit</h3>
+    <ul>
+    <% @event.subscriptions.map(&:user).uniq.each do |user| %>
+      <li><%= user.email %></li>
+    <% end %>
+  </ul>
+  </div>
+  <div class="span3">
+    <h3>Subscribe to this event</h3>
+    <%= simple_form_for [@event, @subscription] do |f| %>
+
+      <%= f.input :email, :label => false %>
+
+      <%= f.button :submit, :class => 'btn btn-info' %>
+    </div>
   <% end %>
-
-<% end %>
+</div>

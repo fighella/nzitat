@@ -12,3 +12,19 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'twitter-bootstrap-rails'
+gem 'less'
+gem 'simple_form'
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'pry'
+end
+
+group :test do
+  gem 'cucumber-rails', require: false
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'machinist'
+  gem 'shoulda-matchers'
+end
