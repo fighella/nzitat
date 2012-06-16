@@ -16,6 +16,7 @@ gem 'less'
 gem 'simple_form'
 
 group :test, :development do
+  gem 'haml-rails'
   gem 'rspec-rails'
   gem 'pry'
 end

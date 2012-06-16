@@ -68,6 +68,12 @@ GEM
       actionpack (>= 3.0)
     gherkin (2.11.0)
       json (>= 1.4.6)
+    haml (3.1.4)
+    haml-rails (0.3.4)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      haml (~> 3.0)
+      railties (~> 3.0)
     has_scope (0.5.1)
     hike (1.2.1)
     i18n (0.6.0)
@@ -192,6 +198,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   formtastic
+  haml-rails
   inherited_resources
   jquery-rails
   less
