@@ -4,7 +4,9 @@ Nzitat::Application.routes.draw do
 
   resources :attendees
 
-  resources :events
+  resources :events do 
+    resources :subscriptions
+  end
 
   root :to => 'events#new'
 
