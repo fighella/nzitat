@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120616010653) do
+ActiveRecord::Schema.define(:version => 20120616104813) do
 
   create_table "appointments", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(:version => 20120616010653) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "event_reminders", :force => true do |t|
+    t.integer  "event_id"
+    t.datetime "notify_at"
+    t.datetime "delivered_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "event_reminders", ["delivered_at", "notify_at"], :name => "index_event_reminders_on_delivered_at_and_notify_at"
+  add_index "event_reminders", ["event_id"], :name => "index_event_reminders_on_event_id"
 
   create_table "events", :force => true do |t|
     t.datetime "event_start"

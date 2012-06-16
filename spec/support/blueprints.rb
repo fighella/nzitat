@@ -13,3 +13,8 @@ Event.blueprint do
   title { "Event #{sn}" }
   event_start { Time.now }
 end
+
+EventReminder.blueprint do
+  event
+  notify_at { Time.now }
+end
