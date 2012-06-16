@@ -21,6 +21,6 @@ $ ->
         years: "%d years"
         numbers: [] 
 
-  $("time").timeago()
+  $("time").timeago().fadeIn(3000)
 
 

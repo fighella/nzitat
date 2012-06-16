@@ -1,33 +1,25 @@
 <div class="row">
-  <div style="text-align:center; height: 200px;" class="span12">
-    <br/>
-    
-    <h1 style="font-size: 82px; line-height: 82px">
-      
-      <% # timeago(@event.event_start) %>
-      <%= timeago(30.seconds.from_now) %>
-    
-    </h1>
-    
-    until <%= @event.title %>
+  <div id="event_new" class="span12">
 
+    <h1>
+      <%= timeago(@event.event_start) %>
+    </h1>
+
+    until <%= @event.title %>
 
   </div>
 </div>
 
-
-<br/>
-
 <div class="row">
-  <div class="span6">
-    <h3>Fuckers coming to this shit</h3>
+  <div class="offset3 span4">
+    <h3>Who's Coming?</h3>
     <ul>
-    <% @event.subscriptions.map(&:user).uniq.each do |user| %>
-      <li><%= user.email %></li>
-    <% end %>
-  </ul>
+      <% @event.subscriptions.map(&:user).uniq.each do |user| %>
+        <li><%= user.email %></li>
+      <% end %>
+    </ul>
   </div>
-  <div class="span3">
+  <div class="span4">
     <h3>Subscribe to this event</h3>
     <%= simple_form_for [@event, @subscription] do |f| %>
 

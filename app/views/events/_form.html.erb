@@ -1,17 +1,17 @@
-<div class="row">
 
-<%= simple_form_for @event, :html => {:class => 'form-horizontal'} do |f| %>
-  <div class="span4">
-  <%= f.input :title, :label => false %>
+<div class="row" id="create_events">
+  
+  <%= simple_form_for @event, :html => {:class => ''} do |f| %>
+    <div class="span12" style="text-align: center">
+       <%= image_tag('logo.png') %>
+      <%= f.input :title, :label => false, :placeholder => 'event name'  %>
 
-</div>
-<div class="span4">
-
-  <%= f.input :date, :as => :string, :input_html => { :class => 'datepicker'}  %>
-
-  <%= f.input :time, :as => :string %>
-</div>
-  <%= f.button :submit, :class => "btn-info btn-large"  %>
-
-<% end %>
+      <%= f.input :date, :as => :string, :input_html => { :class => 'datepicker'}, :label => false, :placeholder => 'what day?'  %>
+      <% # f.input :time, :label => false, :placeholder => "what time?" %>
+      <%= event_time_select(:time) %>
+      <br/>
+      <%= f.button :submit, :class => "btn-info btn-large"  %>
+    </div>
+  <% end %>
+  <br/>
 </div>
