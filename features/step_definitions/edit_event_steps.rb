@@ -1,5 +1,5 @@
 Given /^a saved event starts on "(.*?)"$/ do |time|
-  @event = Event.make!(event_start: Time.parse(time).utc)
+  @event = Event.make!(event_start: Time.parse(time))
 end
 
 When /^I edit that event$/ do

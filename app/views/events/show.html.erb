@@ -13,11 +13,9 @@
 <div class="row">
   <div class="offset3 span4">
     <h3>Who's Coming?</h3>
-    <ul>
       <% @event.subscriptions.map(&:user).uniq.each do |user| %>
-        <li><%= user.email %></li>
+        <%= link_to user.email, user %><br/>
       <% end %>
-    </ul>
   </div>
   <div class="span4">
     <h3>Subscribe to this event</h3>

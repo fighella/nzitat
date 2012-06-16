@@ -1,12 +1,16 @@
-<div class="page-header">
-  <h1>All Events</h1>
-</div>
+<div class="row" style="text-align:center">
 
-
-<% @events.each do |event| %>
-  <div class="event">
-    <h3><%= link_to event.title, event %></h3>
-    <p><%= timeago(event.event_start) %></p>
+  <div class="page-header">
+    <h1>All Events</h1>
   </div>
-<% end %>
 
+
+  <% @events.each do |event| %>
+    <div class="event">
+      <h3><%= link_to event.title, event %></h3>
+      <p><%= timeago(event.event_start) %></p>
+    </div>
+  <% end %>
+
+
+</div>

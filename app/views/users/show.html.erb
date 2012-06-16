@@ -1,0 +1,16 @@
+<div class="row" style="text-align: center">
+
+  <h1> <%= @user.email  %></h1>
+
+  <% if @user.subscriptions.count >= 1 %>
+    <span style="color: #999">is going to:</span>
+    <ul>
+      <% @user.subscriptions.each do |e| %>
+        <li>
+
+          <h3><%= e.event.title %></h3>
+          <%= timeago(e.event.event_start) %>
+        </li>
+      <% end %>
+    <% end %>
+  </div>

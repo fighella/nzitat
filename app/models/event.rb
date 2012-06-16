@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
 
   before_validation :set_datetime
 
-  belongs_to :user
+ #belongs_to :user
 
   has_many :subscriptions
 
