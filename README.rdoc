@@ -1,4 +1,4 @@
-h2. Stupidly simple events feed.
+== Stupidly simple events feed.
 
 Create an event.
 
